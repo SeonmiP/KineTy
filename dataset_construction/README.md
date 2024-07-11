@@ -31,14 +31,14 @@ We will provide you with templates, but you can download more templates from the
 
 ### Text
 
-Write down the words you want to print out in the video to [word.csv]()
+Write down the words you want to print out in the video to [word.csv](https://github.com/SeonmiP/KineTy/blob/main/dataset_construction/word.csv)
 
 ### Video setting
 
 Edit rendering information such as resolution and frame number in [basic_rendering_info.json](). You can add or change the other elements in reference to [Nexrender](https://github.com/inlife/nexrender).
 
 ### Template setting
-Record the below information in [video_info.csv]().
+Record the below information in [template_info.csv](https://github.com/SeonmiP/KineTy/blob/main/dataset_construction/template_info.csv).
 - id: just a number of the template
 - template_name: template file name
 - composition_name: a composition name what you want to render
@@ -53,13 +53,13 @@ For using nexrender:
 pip install ffmpeg
 ```
 
-Then, set your path to dataset construction folder in [render_set.py]():
+Then, set your path to dataset construction folder in [render_set.py](https://github.com/SeonmiP/KineTy/blob/main/dataset_construction/render_set.py):
 ```
 # Path to your project folder
 basedir = "~~~/dataset_construction"
 ```
 
-Lastly, designate your path to nexrender software and aerender software in [render.py]():
+Lastly, designate your path to nexrender software and aerender software in [render.py](https://github.com/SeonmiP/KineTy/blob/main/dataset_construction/render.py):
 ```
 # Path to your nexrender-cli-win64.exe
 nexrender_cli_path = "~~~\\nexrender-cli-win64.exe"
