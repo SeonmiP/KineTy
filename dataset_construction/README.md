@@ -68,7 +68,7 @@ nexrender_cli_path = "~~~\\nexrender-cli-win64.exe"
 aerender_path = "~~~\\aerender.exe"
 ```
 
-Prepare rendering information with each video:
+Prepare [rendering information](https://github.com/SeonmiP/KineTy/tree/main/dataset_construction#settings-for-running-code) with each video:
 ```sh
 python render_set.py
 ```
