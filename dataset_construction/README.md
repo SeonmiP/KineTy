@@ -2,21 +2,21 @@
 <h3 align="center">Instruction for the dataset construction</h3>
 
 <br>
-Here, we will explain how to construct the kinetic typography dataset. Due to the IP license issues of the templates, we provide a source code for a post-processing and video rendering.
+We provide detailed instructions on how to construct the kinetic typography dataset. Due to IP licensing issues with the templates, we also provide source code for post-processing and video rendering. After downloading the original template files from the official webpage and following these instructions, you can easily create the kinetic typography dataset. Details are as follows.
 
 ## Preliminaries
-To construct the dataset, you need to subscribe to the Adobe After Effects program, as our dataset is constructed using Adobe After Effects templates.
+To construct the dataset, please ensure you have Adobe After Effects installed, as our dataset is created using Adobe After Effects templates. Additionally, you will need other programs related to Adobe After Effects.
 
 ### Adobe After Effect
-You can subscribe to the software here: [Adobe After Effect](https://www.adobe.com/products/aftereffects.html).
+You can download the software from here: [Adobe After Effect](https://www.adobe.com/products/aftereffects.html).
 
 
 ### Nexrender
-We use only 'nexrender-cli-win64.exe' from [Nexrender Installation link](https://github.com/inlife/nexrender/releases). This is for window and we use version 1.46.6. For more information, you can find here: [Nexrender](https://github.com/inlife/nexrender)
+We use only 'nexrender-cli-win64.exe' from [Nexrender Installation link](https://github.com/inlife/nexrender/releases). This is for Windows and we use version 1.46.6. This program enables the use of Adobe After Effects through programming. For more information about this, you can find it here: [Nexrender](https://github.com/inlife/nexrender)
 
 
 ### Templates
-We will provide you with templates, but you can download more templates from the site below.
+We will provide you with templates, but you can download more Adobe After Effects templates from the site below.
 
 - [MotionArray](https://motionarray.com/)
 - [Artlist](https://artlist.io/)
@@ -31,19 +31,19 @@ We will provide you with templates, but you can download more templates from the
 
 ### Text
 
-Write down the words you want to print out in the video to [word.csv](https://github.com/SeonmiP/KineTy/blob/main/dataset_construction/word.csv)
+Write down the words you want to print out in the video to [`word.csv`](https://github.com/SeonmiP/KineTy/blob/main/dataset_construction/word.csv)
 
 ### Video setting
 
-Edit rendering information such as resolution and frame number in [basic_rendering_info.json](). You can add or change the other elements in reference to [Nexrender](https://github.com/inlife/nexrender).
+Edit rendering information such as resolution and frame number in [`basic_rendering_info.json`](). You can add or change the other elements in reference to [Nexrender](https://github.com/inlife/nexrender).
 
 ### Template setting
-Record the below information in [template_info.csv](https://github.com/SeonmiP/KineTy/blob/main/dataset_construction/template_info.csv).
-- id: just a number of the template
-- template_name: template file name
-- composition_name: a composition name what you want to render
-- composition_text: the composition name where the text layer is
-- layer_text: a text layer name which has a 'source text'
+Record the below information in [`template_info.csv`](https://github.com/SeonmiP/KineTy/blob/main/dataset_construction/template_info.csv).
+- `id`: just a number of the template
+- `template_name`: template file name
+- `composition_name`: a composition name what you want to render
+- `composition_text`: the composition name where the text layer is
+- `layer_text`: a text layer name which has a 'source text'
 
 
 ## Video Rendering
@@ -53,13 +53,13 @@ For using nexrender:
 pip install ffmpeg
 ```
 
-Then, set your path to dataset construction folder in [render_set.py](https://github.com/SeonmiP/KineTy/blob/main/dataset_construction/render_set.py):
+Then, set your path to dataset construction folder in [`render_set.py`](https://github.com/SeonmiP/KineTy/blob/main/dataset_construction/render_set.py):
 ```
 # Path to your project folder
 basedir = "~~~/dataset_construction"
 ```
 
-Lastly, designate your path to nexrender software and aerender software in [render.py](https://github.com/SeonmiP/KineTy/blob/main/dataset_construction/render.py):
+Lastly, designate your path to nexrender software and aerender software in [`render.py`](https://github.com/SeonmiP/KineTy/blob/main/dataset_construction/render.py):
 ```
 # Path to your nexrender-cli-win64.exe
 nexrender_cli_path = "~~~\\nexrender-cli-win64.exe"
@@ -68,14 +68,8 @@ nexrender_cli_path = "~~~\\nexrender-cli-win64.exe"
 aerender_path = "~~~\\aerender.exe"
 ```
 
-Prepare [rendering information](https://github.com/SeonmiP/KineTy/tree/main/dataset_construction#settings-for-running-code) with each video:
+Prepare [rendering information](https://github.com/SeonmiP/KineTy/tree/main/dataset_construction#settings-for-running-code) with each video and render the template:
 ```sh
-python render_set.py
+python render_set.py    # Save the rendering information 
+python render.py        # Render the template into a video
 ```
-
-Render the template:
-```sh
-python render.py
-```
-
-
