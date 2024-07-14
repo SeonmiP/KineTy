@@ -5,6 +5,13 @@
 We provide detailed instructions on how to construct the kinetic typography dataset. Due to IP licensing issues with the templates, we also provide source code for post-processing and video rendering. After downloading the original template files from the official webpage and following these instructions, you can easily create the kinetic typography dataset. Details are as follows.
 
 ## Preliminaries
+
+<p align="center">
+<img src="https://github.com/SeonmiP/KineTy/blob/main/img/dataset_example.gif" width="1080px"/>
+<br/>
+<em>Examples of our KineTy dataset. You can download them with <a href="https://github.com/SeonmiP/KineTy/blob/main/dataset_construction/video/samples">this link</a>.</em>
+</p>
+
 To construct the dataset, please ensure you have Adobe After Effects installed, as our dataset is created using Adobe After Effects templates. Additionally, you will need other programs related to Adobe After Effects.
 
 ### Adobe After Effect
@@ -35,7 +42,7 @@ Write down the words you want to print out in the video to [`word.csv`](https://
 
 ### Video setting
 
-Edit rendering information such as resolution and frame number in [`basic_rendering_info.json`](). You can add or change the other elements in reference to [Nexrender](https://github.com/inlife/nexrender).
+Edit rendering information such as resolution and frame number in [`basic_rendering_info.json`](https://github.com/SeonmiP/KineTy/blob/main/dataset_construction/basic_rendering_info.json). You can add or change the other elements in reference to [Nexrender](https://github.com/inlife/nexrender).
 
 ### Template setting
 Record the below information in [`template_info.csv`](https://github.com/SeonmiP/KineTy/blob/main/dataset_construction/template_info.csv).
