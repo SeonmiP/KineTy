@@ -36,15 +36,15 @@ We will provide you with templates, but you can download more Adobe After Effect
 
 ## Settings for Running Code
 
-### Text
+### 📝 Text
 
 Write down the words you want to print out in the video to [`word.csv`](https://github.com/SeonmiP/KineTy/blob/main/dataset_construction/word.csv)
 
-### Video setting
+### 🎥 Video setting
 
 Edit rendering information such as resolution and frame number in [`basic_rendering_info.json`](https://github.com/SeonmiP/KineTy/blob/main/dataset_construction/basic_rendering_info.json). You can add or change the other elements in reference to [Nexrender](https://github.com/inlife/nexrender).
 
-### Template setting
+### 📁 Template setting
 Record the below information in [`template_info.csv`](https://github.com/SeonmiP/KineTy/blob/main/dataset_construction/template_info.csv).
 - `id`: just a number of the template
 - `template_name`: template file name
