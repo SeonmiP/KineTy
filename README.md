@@ -1,6 +1,6 @@
 <h2 align="center">Kinetic Typography Diffusion Model</h2>
 <p align="center">
-  <a href="https://www.linkedin.com/in/seonmi-park-7663b9303/"><strong>Seonmi Park</strong></a>
+  <a href="https://scholar.google.com/citations?user=_jdAVpYAAAAJ"><strong>Seonmi Park</strong></a>
   ·  
   <a href="https://InhwanBae.github.io/"><strong>Inhwan Bae</strong></a>
   ·
