@@ -1,0 +1,18 @@
+# motion module v1_15
+- inference_config: "configs/inference/inference-v1.yaml"
+  motion_module:    "models/Checkpoints/checkpoint.ckpt"
+  unet_checkpoint_path: "models/StableDiffusion/unet/unet-checkpoint.ckpt"
+
+  L: 24
+  H: 256
+  W: 256
+
+  seed: [22222222222]
+  steps: 25
+  guidance_scale: 8
+
+  prompt:
+     - "The word \"K^|i|n|e|T^|y\".The word \"K^|i|n|e|T^|y\" in capital letters emits a glowing effect against a dark background creating a stark contrast.The word \"K^|i|n|e|T^|y\" is revealed in a random order, with each letter appearing one after the other, until the entire word is brightly displayed."
+
+  n_prompt:
+    - "worst quality, low quality, letterboxed"

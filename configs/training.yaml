@@ -1,0 +1,79 @@
+image_finetune: false
+
+output_dir: "outputs"
+pretrained_model_path: "models/StableDiffusion/"
+
+unet_additional_kwargs:
+  use_motion_module              : true
+  motion_module_resolutions      : [ 1,2,4,8 ]
+  unet_use_cross_frame_attention : false
+  unet_use_temporal_attention    : false
+
+  motion_module_type: Vanilla
+  motion_module_kwargs:
+    num_attention_heads                : 8
+    num_transformer_block              : 1
+    attention_block_types              : [ "Temporal_Self", "Temporal_Self" ]
+    temporal_position_encoding         : true
+    temporal_position_encoding_max_len : 24
+    temporal_attention_dim_div         : 1
+    zero_initialize                    : true
+
+noise_scheduler_kwargs:
+  num_train_timesteps: 1000
+  beta_start:          0.00085
+  beta_end:            0.012
+  beta_schedule:       "linear"
+  steps_offset:        1
+  clip_sample:         false
+
+train_data:
+  csv_path:        "data/dataset_584x1000/video_info_upper_short_st8dy_wordembed.csv"
+  video_folder:    "data/dataset_584x1000/videos"
+  mask_folder:     "data/dataset_584x1000/mask"
+  sample_size:     256
+  sample_stride:   1
+  sample_n_frames: 24
+
+validation_data:
+  prompts:
+    - "The word \"V^|o|l|c|a|n|o\". The word \"V^|o|l|c|a|n|o\" in capital letters emits a glowing effect against a dark background creating a stark contrast. The word \"V^|o|l|c|a|n|o\" is revealed in a random order, with each letter appearing one after the other, until the entire word is brightly displayed."
+    - "The word \"V^|o|l|c|a|n|o\". The word \"V^|o|l|c|a|n|o\" in bold, green-striped letters against a textured coral background. The sequential addition of letters one by one to spell out the word \"V^|o|l|c|a|n|o\"."
+    - "The word \"V^|o|l|c|a|n|o\". The word \"V^|o|l|c|a|n|o\" in gold cursive text on a red background. The word \"V^|o|l|c|a|n|o\" materializes in a sequential order from left to right."
+    - "The word \"V^|o|l|c|a|n|o\". The word \"V^|o|l|c|a|n|o\" with a shiny, reflective effect against a gradient purple background. The word \"V^|o|l|c|a|n|o\" is formed in a sequential order with each letter appearing one after the other."
+    - "The word \"V^|o|l|c|a|n|o\". The word \"V^|o|l|c|a|n|o\" in a blurred, tunnel-like visual effect, creating a sense of depth and distortion on a dark background. The word \"V^|o|l|c|a|n|o\" gradually comes into focus, with each letter appearing in a random order, intensifying the sense of depth and creating a captivating reveal."
+    - "The word \"V^|o|l|c|a|n|o\". The word \"V^|o|l|c|a|n|o\" in a pink digital font against a gray background with a circular gradient effect. The video depicts the emergence of the word \"V^|o|l|c|a|n|o\" moving up and down with a vertical glitch effect."
+    - "The word \"V^|o|l|c|a|n|o\". The word \"V^|o|l|c|a|n|o\" in bold yellow and retro-like red letters against a starry black background. The word \"V^|o|l|c|a|n|o\" is formed as each letter flies in from the left in a sequential order to its position."
+    - "The word \"V^|o|l|c|a|n|o\". The word \"V^|o|l|c|a|n|o\" with a blurred and colorful chromatic aberration effect. The word \"V^|o|l|c|a|n|o\" comes into focus while they are waving like inside the water."
+    - "The word \"V^|o|l|c|a|n|o\". The word \"V^|o|l|c|a|n|o\" in white letters against a black background, accompanied by two smiling emoji faces with heart eyes. Each character of the word \"V^|o|l|c|a|n|o\" appears sequentially, with various smiling emojis popping up randomly around the text."
+    - "The word \"V^|o|l|c|a|n|o\". The image shows an abstract design with the word \"V^|o|l|c|a|n|o\" against a blue background with blob and circle shapes in different shades of blue. The word \"V^|o|l|c|a|n|o\" slides down while blob and circle shapes appear, rotating in the background."
+
+
+  num_inference_steps: 25
+  guidance_scale: 8.
+
+trainable_modules:
+  - "motion_modules."
+  - "attn2_zero."
+  - "attention_blocks_zero."
+  - "zero_conv."
+  - "attention_blocks.2."
+
+unet_checkpoint_path: "models/StableDiffusion/unet/unet-checkpoint.ckpt"
+
+learning_rate:    1.e-4
+train_batch_size: 1
+
+max_train_epoch:      -1
+max_train_steps:      100000
+checkpointing_epochs: -1
+checkpointing_steps:  1000
+
+validation_steps:       5000
+validation_steps_tuple: [2, 50]
+
+global_seed: 42
+mixed_precision_training: True
+enable_xformers_memory_efficient_attention: True
+
+is_debug: False
