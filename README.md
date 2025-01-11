@@ -65,5 +65,5 @@ python -m inference --config configs/inference.yaml
 ```
 
 
-### Acknowledgements
+## Acknowledgements
 Part of our code is built upon [AnimateDiff](https://github.com/guoyww/AnimateDiff/tree/main) and [Tune-a-Video](https://github.com/showlab/Tune-A-Video). The visualization of the attention map refers to [FateZero](https://github.com/ChenyangQiQi/FateZero/tree/main) and [prompt-to-prompt](https://github.com/google/prompt-to-prompt/). Thanks to the authors for sharing their works.
